@@ -11,6 +11,8 @@
 }
 
 .barra {
+    height: 70px;
+    width: 100%;
     background-color: #29b1dd;
-    
+    color: white;
 }

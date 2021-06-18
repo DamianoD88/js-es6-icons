@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Icons-Cats</title>
 </head>
@@ -13,8 +14,20 @@
         <!-- parte superiore -->
         <div class="header">
             <h1 class="titolo">FontIcons</h1>
-            <div class="barra">
-                
+            <div class="barra d-flex justify-content-center align-items-center">
+                <div class="text">
+                    FILTRA PER TIPO
+                </div>
+                <div class="btn btn-light" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      All
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <li><a class="dropdown-item" href="#">All</a></li>
+                      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                    </ul>
+                  </div>
+
             </div>
         </div>
 
