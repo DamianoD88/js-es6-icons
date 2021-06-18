@@ -108,4 +108,22 @@ const icons = [
       type: 'user',
       family: 'fas',
     },
-  ];
+];
+
+  
+icons.forEach((element)=> {
+      console.log(element);
+
+      const {name, prefix, type, family} = element;
+
+      const elementHTML = `
+      <div>
+        <i class="${family} ${prefix}${name}"></i>
+        <div class="title">${name.toUpperCase()}</div>
+      </div>`;
+
+      document.getElementById('icone').innerHTML += elementHTML;
+
+});
+
+
