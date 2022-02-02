@@ -110,20 +110,96 @@ const icons = [
     },
 ];
 
-  
-icons.forEach((element)=> {
-      console.log(element);
 
-      const {name, prefix, type, family} = element;
 
-      const elementHTML = `
+// print è nome dato alla funzione
+const coloredArray = colorIcons(icons);
+
+printIcons(coloredArray);
+
+const types = [];
+
+
+coloredArray.forEach((element) => {
+  if(!types.includes(element.type)){
+    types.push(element.type);
+    document.getElementById('type').innerHTML +=
+    ` <option value="${element.type}">${element.type}</option>
+    `
+  }
+
+});
+
+const select = document.getElementById('type');
+
+select.addEventListener("change", function(){
+  const valoreSelect = select.value;
+  console.log(valoreSelect);
+  const filteredIcons = coloredArray.filter((element) => {
+    return element.type == valoreSelect;
+  });
+
+  printIcons(filteredIcons);
+  if(valoreSelect == 'all'){
+    printIcons(coloredArray);
+  }
+
+});
+
+/*----- function -----*/
+
+function printIcons(array){
+  document.getElementById('icone').innerHTML = '';
+
+  array.forEach((element) => {
+    //destructuring
+    const {color, name, prefix, family} = element;
+
+    //template literal
+    const elementHTML = `
       <div>
-        <i class="${family} ${prefix}${name}"></i>
+        <i class="${family} ${prefix}${name}" style="color:${color}"></i>
         <div class="title">${name.toUpperCase()}</div>
       </div>`;
 
-      document.getElementById('icone').innerHTML += elementHTML;
+    document.getElementById('icone').innerHTML += elementHTML;
 
 });
+}
+//   array.forEach((element) => {
+//     console.log(element);
+
+//     const {name, prefix, family} = element;
+
+//     const elementHTML = `
+//       <div>
+//         <i class="${family} ${prefix}${name}"></i>
+//         <div class="title">${name.toUpperCase()}</div>
+//       </div>`;
+
+//     document.getElementById('icone').innerHTML += elementHTML;
+
+// });
+
+
+
+function colorIcons(array){
+  const coloredArray = array.map((element) => {
+    let color = 'blue';
+    if(element.type == 'animal'){
+      color = 'green'
+    }else if (element.type == 'vegetable'){
+      color = 'orange';
+    }
+  
+  //return(nel map è obbligatorio) ...element ritorna tutte le proprietà di quell'elemento
+  
+    return{
+      ...element,
+      color
+    }
+  });
+  return coloredArray;
+}
 
 
